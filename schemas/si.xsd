@@ -8,7 +8,7 @@
   
   <xs:import 
       namespace='http://jabber.org/protocol/feature-neg'
-      schemaLocation='http://www.xmpp.org/schemas/feature-neg.xsd'/>
+      schemaLocation='http://xmpp.org/schemas/feature-neg.xsd'/>
 
   <xs:annotation>
     <xs:documentation>
@@ -25,10 +25,9 @@
       </xs:documentation>
     </xs:annotation>
     <xs:complexType>
-      <xs:all xmlns:fneg='http://jabber.org/protocol/feature-neg'>
-        <xs:element ref='fneg:feature'/>
-        <xs:any namespace='##other'/>
-      </xs:all>
+      <xs:choice xmlns:fneg='http://jabber.org/protocol/feature-neg'>
+        <xs:any namespace='##other' minOccurs='0'/>
+      </xs:choice>
       <xs:attribute name='id' type='xs:string' use='optional'/>
       <xs:attribute name='mime-type' type='xs:string' use='optional'/>
       <xs:attribute name='profile' type='xs:string' use='optional'/>

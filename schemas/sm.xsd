@@ -6,6 +6,9 @@
     xmlns='urn:xmpp:sm:2'
     elementFormDefault='qualified'>
 
+  <xs:import namespace='urn:ietf:params:xml:ns:xmpp-stanzas'
+             schemaLocation='http://xmpp.org/schemas/stanzaerror.xsd'/>
+
   <xs:annotation>
     <xs:documentation>
       The protocol documented by this schema is defined in
@@ -70,7 +73,7 @@
     <xs:complexType>
       <xs:sequence xmlns:err='urn:ietf:params:xml:ns:xmpp-stanzas' 
                    minOccurs='0'
-                   minOccurs='1'>
+                   maxOccurs='1'>
         <xs:group ref='err:stanzaErrorGroup'/>
       </xs:sequence>
     </xs:complexType>
@@ -88,9 +91,9 @@
     </xs:complexType>
   </xs:element>
 
-  <xs:element name='resume' type='resumptionElementType'>
+  <xs:element name='resume' type='resumptionElementType'/>
 
-  <xs:element name='resumed' type='resumptionElementType'>
+  <xs:element name='resumed' type='resumptionElementType'/>
 
   <xs:element name='sm'>
     <xs:complexType>

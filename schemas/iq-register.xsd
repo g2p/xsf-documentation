@@ -8,10 +8,10 @@
 
   <xs:import 
       namespace='jabber:x:data'
-      schemaLocation='http://www.xmpp.org/schemas/x-data.xsd'/>
+      schemaLocation='http://xmpp.org/schemas/x-data.xsd'/>
   <xs:import 
       namespace='jabber:x:oob'
-      schemaLocation='http://www.xmpp.org/schemas/x-oob.xsd'/>
+      schemaLocation='http://xmpp.org/schemas/x-oob.xsd'/>
 
   <xs:annotation>
     <xs:documentation>

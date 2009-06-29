@@ -6,7 +6,8 @@
     xmlns='http://jabber.org/protocol/compress'
     elementFormDefault='qualified'>
 
-  <xs:import namespace='urn:ietf:params:xml:ns:xmpp-stanzas'/>
+  <xs:import namespace='urn:ietf:params:xml:ns:xmpp-stanzas'
+             schemaLocation='http://xmpp.org/schemas/stanzaerror.xsd'/>
 
   <xs:annotation>
     <xs:documentation>

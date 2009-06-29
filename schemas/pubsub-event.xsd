@@ -15,7 +15,7 @@
 
   <xs:import
       namespace='jabber:x:data'
-      schemaLocation='http://www.xmpp.org/schemas/x-data.xsd'/>
+      schemaLocation='http://xmpp.org/schemas/x-data.xsd'/>
 
   <xs:element name='event'>
     <xs:complexType>
@@ -32,9 +32,18 @@
 
   <xs:element name='collection'>
     <xs:complexType>
-      <xs:sequence minOccurs='1'>
-        <xs:element ref='node'/>
-      </xs:sequence>
+      <xs:all minOccurs='1'>
+        <xs:element name='associate'>
+          <xs:complexType>
+            <xs:attribute name='node' type='xs:string' use='optional'/>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name='disassociate'>
+          <xs:complexType>
+            <xs:attribute name='node' type='xs:string' use='optional'/>
+          </xs:complexType>
+        </xs:element>
+      </xs:all>
       <xs:attribute name='node' type='xs:string' use='optional'/>
     </xs:complexType>
   </xs:element>

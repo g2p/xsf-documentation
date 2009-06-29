@@ -15,7 +15,7 @@
 
   <xs:import
       namespace='jabber:x:data'
-      schemaLocation='http://www.xmpp.org/schemas/x-data.xsd'/>
+      schemaLocation='http://xmpp.org/schemas/x-data.xsd'/>
 
   <xs:element name='pubsub'>
     <xs:complexType>
@@ -126,4 +126,9 @@
     </xs:complexType>
   </xs:element>
 
+  <xs:simpleType name="empty">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="" />
+    </xs:restriction>
+  </xs:simpleType>
 </xs:schema>

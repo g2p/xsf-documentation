@@ -7,7 +7,7 @@
     elementFormDefault='qualified'>
 
   <xs:import namespace='jabber:x:data'
-             schemaLocation='http://www.xmpp.org/schemas/x-data.xsd'/>
+             schemaLocation='http://xmpp.org/schemas/x-data.xsd'/>
 
   <xs:annotation>
     <xs:documentation>
@@ -18,15 +18,19 @@
 
   <xs:element name='query'>
     <xs:complexType>
+	<!--
+		There is a nondeterminism issue here. Introducing a grouping element
+		would have helped.
+	-->
       <xs:choice>
-        <xs:all xmlns:xdata='jabber:x:data'>
-          <xs:element name='instructions' type='xs:string'/>
-          <xs:element name='first' type='xs:string'/>
-          <xs:element name='last' type='xs:string'/>
-          <xs:element name='nick' type='xs:string'/>
-          <xs:element name='email' type='xs:string'/>
+        <xs:choice xmlns:xdata='jabber:x:data'>
+          <xs:element name='instructions' type='xs:string' minOccurs='0'/>
+          <xs:element name='first' type='xs:string' minOccurs='0'/>
+          <xs:element name='last' type='xs:string' minOccurs='0'/>
+          <xs:element name='nick' type='xs:string' minOccurs='0'/>
+          <xs:element name='email' type='xs:string' minOccurs='0'/>
           <xs:element ref='xdata:x' minOccurs='0'/>
-        </xs:all>
+        </xs:choice>
         <xs:element ref='item' minOccurs='0' maxOccurs='unbounded'/>
       </xs:choice>
     </xs:complexType>

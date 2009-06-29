@@ -13,7 +13,8 @@
     </xs:documentation>
   </xs:annotation>
 
-  <xs:import namespace='jabber:client'/>
+  <xs:import namespace='jabber:client'
+    schemaLocation='http://xmpp.org/schemas/jabber-client.xsd' />
 
   <xs:element name='waitlist'>
     <xs:complexType>
@@ -28,9 +29,8 @@
   <xs:element name='item'>
     <xs:complexType>
       <xs:choice minOccurs='0'
-                 maxOccurs='unbounded'
-                 xmlns:xmpp='jabber:client'>
-        <xs:sequence>
+                 maxOccurs='unbounded'>
+        <xs:sequence xmlns:xmpp='jabber:client'>
           <xs:element ref='uri'/>
           <xs:element ref='name' minOccurs='0'/>
           <xs:element ref='xmpp:error' minOccurs='0'/>
@@ -54,11 +54,13 @@
     </xs:complexType>
   </xs:element>
 
-  <xs:element name='uri' type='xs:string'>
+  <xs:element name='uri' >
     <xs:complexType>
-      <xs:attribute name='scheme'
-                    type='xs:NCNAME'
-                    use='required'/>
+      <xs:simpleContent>
+	    <xs:extension base='xs:string'>
+	      <xs:attribute name='scheme' type='xs:NCName' use='required' />
+        </xs:extension>
+      </xs:simpleContent>
     </xs:complexType>
   </xs:element>
 
